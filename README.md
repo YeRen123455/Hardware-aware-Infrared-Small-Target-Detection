@@ -19,7 +19,7 @@ We propose a hardware-aware nested architecture NAS method (namely, HNA-NAS) to 
 #### On Ubuntu:
 
 ```bash
-python test.py --base_size 256 --crop_size 256 --st_model [trained model path] --model_dir [model_dir] --dataset [dataset-name] --split_method 50_50 --model [model name] --backbone resnet_18  --deep_supervision True --test_batch_size 1 --mode TXT 
+python SIRST_main_all.py --dataset NUAA-SIRST-Old  --Inference_resize True  --split_method 50_50 --inference_path /media/lby/sda/NAS/proxylessnas-master-SIRST-new-final_share/search/logs/0,1_NUAA-SIRST_Super_all_Res_Group_Spa_MBConv_16_11_2023_00_20_25_Retrain
 ```
 
 
@@ -28,45 +28,6 @@ python test.py --base_size 256 --crop_size 256 --st_model [trained model path] -
 
 ![outline](Qualitative_result.png)
 
-#### Quantative Results 
-
-on NUDT-SIRST
-
-| Model         | mIoU (x10(-2)) | Pd (x10(-2))|  Fa (x10(-6)) ||
-| ------------- |:-------------:|:-----:|:-----:|:-----:|
-| DNANet-VGG-10 | 85.23 | 96.95 | 6.782|
-| DNANet-ResNet-10| 86.36 | 97.39 | 6.897 |
-| DNANet-ResNet-18| 87.09 | 98.73 | 4.223 |
-| DNANet-ResNet-18| 88.61 | 98.42 | 4.30 | [[Weights]](https://drive.google.com/file/d/1NDvjOiWecfWNPaO12KeIgiJMTKSFS6wj/view?usp=sharing) |
-| DNANet-ResNet-34| 86.87 | 97.98 | 3.710 |
-
-
-on NUAA-SIRST
-| Model         | mIoU (x10(-2)) | Pd (x10(-2))|  Fa (x10(-6)) ||
-| ------------- |:-------------:|:-----:|:-----:|:-----:|
-| DNANet-VGG-10 | 74.96 | 97.34 | 26.73 |
-| DNANet-ResNet-10| 76.24 | 97.71 | 12.80 |
-| DNANet-ResNet-18| 77.47 | 98.48 | 2.353 |
-| DNANet-ResNet-18| 79.26 | 98.48 | 2.30 | [[Weights]](https://drive.google.com/file/d/1W0jFN9ZlaIdGFemYKi34tmJfGxjUGCRc/view?usp=sharing) |
-| DNANet-ResNet-34| 77.54 | 98.10 | 2.510 |
-
-on NUST-SIRST
-
-| Model         | mIoU (x10(-2)) | Pd (x10(-2))|  Fa (x10(-6)) ||
-| ------------- |:-------------:|:-----:|:-----:|:-----:|
-| DNANet-ResNet-18| 46.73 | 81.29 | 33.87 | [[Weights]](https://drive.google.com/file/d/1TF0bZRMsGuKzMhlHKH1LygScBveMcCS2/view?usp=sharing) |
-
-*This code is highly borrowed from [ACM](https://github.com/YimianDai/open-acm). Thanks to Yimian Dai.
-
-*The overall repository style is highly borrowed from [PSA](https://github.com/jiwoon-ahn/psa). Thanks to jiwoon-ahn.
-
-## Referrences
-
-1. Dai Y, Wu Y, Zhou F, et al. Asymmetric contextual modulation for infrared small target detection[C]//Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision. 2021: 950-959. [[code]](https://github.com/YimianDai/open-acm) 
-
-2. Zhou Z, Siddiquee M M R, Tajbakhsh N, et al. Unet++: Redesigning skip connections to exploit multiscale features in image segmentation[J]. IEEE transactions on medical imaging, 2019, 39(6): 1856-1867. [[code]](https://github.com/MrGiovanni/UNetPlusPlus)
-
-3. He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2016: 770-778. [[code]](https://github.com/rwightman/pytorch-image-models)
 
 
 
