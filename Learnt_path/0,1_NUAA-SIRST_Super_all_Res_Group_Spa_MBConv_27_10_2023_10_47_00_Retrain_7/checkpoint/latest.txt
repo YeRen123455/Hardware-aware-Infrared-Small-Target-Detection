@@ -1,0 +1,1 @@
+/root/autodl-tmp/code/proxylessnas-master-SIRST-new-final-autodl/search/logs/0,1_NUAA-SIRST_Super_all_Res_Group_Spa_MBConv_27_10_2023_10_47_00_Retrain_2/checkpoint/checkpoint.pth.tar
