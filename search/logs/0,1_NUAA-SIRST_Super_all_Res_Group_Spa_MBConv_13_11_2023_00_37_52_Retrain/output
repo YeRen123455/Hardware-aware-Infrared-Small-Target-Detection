@@ -1,0 +1,6 @@
+{
+    "valid_loss": "  0.266883",
+    "validate_IoU": "0.732869",
+    "valid_size": 1,
+    "test_loss": "0.266883"
+}
