@@ -1,95 +1,27 @@
-# Dense Nested Attention Network for Infrared Small Target Detection
-
-## Good News! Our paper has been accepted by `IEEE Transaction on Image Processing`. Our team will release more interesting works and applications on SIRST soon. Please keep following our repository.
-
-![outline](overall_structure.png)
+# HNA-NAS: Hardware-aware Nested Architecture Search for Infrared Small Target Segmentation
 
 ## Algorithm Introduction
 
-Dense Nested Attention Network for Infrared Small Target Detection, Boyang Li, Chao Xiao, Longguang Wang, and Yingqian Wang, arxiv 2021 [[Paper]](https://arxiv.org/pdf/2106.00487.pdf)
+HNA-NAS: Hardware-aware Nested Architecture Search for Infrared Small Target Segmentation, Boyang Li, Miao Li, Yingqian Wang, Ting Liu, Zaiping Lin, Wei An, Weidong Sheng, Yulan Guo.
 
-We propose a dense nested attention network (DNANet) to achieve accurate single-frame infrared small target detection and develop an open-sourced infrared small target dataset (namely, NUDT-SIRST) in this paper. Experiments on both public (e.g., NUAA-SIRST, NUST-SIRST) and our self-developed datasets demonstrate the effectiveness of our method. The contribution of this paper are as follows:
+We propose a hardware-aware nested architecture NAS method (namely, HNA-NAS) to search for efficient IRST segmentation network. Different from previous NAS methods, our method adopt IRST specialized nested architecture as backbone and design a two-stage neural architecture search algorithm to progressively achieve architecture simplification and cell optimization. Both efficient nested architecture and hardware-friendly convolutional operation are searched to achieve the trade-off between segmentation performance and inference latency. Experimental results on three benchmark datasets show that the searched HNANAS can achieve comparable segmentation performance with much smaller number of parameters, much lower FLOPs, and much shorter inference latency on the CPU, GPU, Edge CPU, and Edge GPU devices
 
-1. We propose a dense nested attention network (namely, DNANet) to maintain small targets in deep layers.
-
-2. An open-sourced dataset (i.e., NUDT-SIRST) with rich targets.
-
-3. Performing well on all existing SIRST datasets.
-
-## Dataset Introduction
-
-NUDT-SIRST is a synthesized dataset, which contains 1327 images with resolution of 256x256. The advantage of synthesized dataset compared to real dataset lies in three aspets:
-
-1. Accurate annotations.
-
-2. Massive generation with low cost (i.e., time and money).
-
-3. Numerous categories of target, rich target sizes, diverse clutter backgrounds.
-
-## Citation
-
-If you find the code useful, please consider citing our paper using the following BibTeX entry.
-
-```
-@article{DNANet,
-  title={Dense nested attention network for infrared small target detection},
-  author={Li, Boyang and Xiao, Chao and Wang, Longguang and Wang, Yingqian and Lin, Zaiping and Li, Miao and An, Wei and Guo, Yulan},
-  journal={IEEE Transactions on Image Processing},
-  year={2023},
-  volume={32},
-  pages={1745-1758},
-  publisher={IEEE}
-}
-```
 
 ## Prerequisite
 * Tested on Ubuntu 16.04, with Python 3.7, PyTorch 1.7, Torchvision 0.8.1, CUDA 11.1, and 1x NVIDIA 3090 and also 
-
-* Tested on Windows 10  , with Python 3.6, PyTorch 1.1, Torchvision 0.3.0, CUDA 10.0, and 1x NVIDIA 1080Ti.
 
 * [The NUDT-SIRST download dir](https://pan.baidu.com/s/1WdA_yOHDnIiyj4C9SbW_Kg?pwd=nudt) (Extraction Code: nudt)
 
 * [The NUAA-SIRST download dir](https://github.com/YimianDai/sirst) [[ACM]](https://arxiv.org/pdf/2009.14530.pdf)
 
-* [The NUST-SIRST download dir](https://github.com/wanghuanphd/MDvsFA_cGAN) [[MDvsFA]](https://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Miss_Detection_vs._False_Alarm_Adversarial_Learning_for_Small_Object_ICCV_2019_paper.pdf)
-
 ## Usage
 
-#### On windows:
-
-```
-Click on train.py and run it. 
-```
-
 #### On Ubuntu:
-
-#### 1. Train.
-
-```bash
-python train.py --base_size 256 --crop_size 256 --epochs 1500 --dataset [dataset-name] --split_method 50_50 --model [model name] --backbone resnet_18  --deep_supervision True --train_batch_size 16 --test_batch_size 16 --mode TXT
-
-```
-#### 2. Test.
 
 ```bash
 python test.py --base_size 256 --crop_size 256 --st_model [trained model path] --model_dir [model_dir] --dataset [dataset-name] --split_method 50_50 --model [model name] --backbone resnet_18  --deep_supervision True --test_batch_size 1 --mode TXT 
 ```
 
-#### (Optional 1) Visulize your predicts.
-```bash
-python visulization.py --base_size 256 --crop_size 256 --st_model [trained model path] --model_dir [model_dir] --dataset [dataset-name] --split_method 50_50 --model [model name] --backbone resnet_18  --deep_supervision True --test_batch_size 1 --mode TXT 
-```
-
-#### (Optional 2) Test and visulization.
-```bash
-python test_and_visulization.py --base_size 256 --crop_size 256 --st_model [trained model path] --model_dir [model_dir] --dataset [dataset-name] --split_method 50_50 --model [model name] --backbone resnet_18  --deep_supervision True --test_batch_size 1 --mode TXT 
-```
-
-#### (Optional 3) Demo (with your own IR image).
-```bash
-python demo.py --base_size 256 --crop_size 256 --img_demo_dir [img_demo_dir] --img_demo_index [image_name]  --model [model name] --backbone resnet_18  --deep_supervision True --test_batch_size 1 --mode TXT  --suffix [img_suffix]
-
-```
 
 ## Results and Trained Models
 #### Qualitative Results
